@@ -128,4 +128,9 @@ blockquote cite {
     width: 190px;
     height: 40px;
 }
+.today-task-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
 
