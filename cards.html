@@ -134,7 +134,7 @@
                 id: 3,
                 name: 'Написать эссе',
                 isDone: false,
-            },{
+            }, {
                 id: 4,
                 name: 'Записаться к репетитору',
                 isDone: false,
@@ -155,14 +155,14 @@
         }
 
         function calculateProgress(tasks, tasksFinished) {
-            return (tasksFinished/ tasks.length * 100).toFixed(2);
+            return (tasksFinished / tasks.length * 100).toFixed(2);
         }
 
         function printModalTasks(card) {
             let content = '';
             card.tasks.forEach(task => {
                 if (task.isDone) {
-                    content += `<input class="form-check-input" type="checkbox" value="${task.name}" id="${task.id}" checked>
+                    content += `<input class="form-check-input" type="checkbox" value="${task.name}" id="${task.id}" saveCheckbox(this) checked>
                         <label class="form-check-label" for="flexCheckDefault">
                             ${task.name}
                         </label>
@@ -177,6 +177,22 @@
             })
             return content;
         }
+
+        function saveCheckbox() {
+            if (this.checked) {
+                let n = getObjectIndex(this.value);
+                cards[n].isDone = true;
+            }
+        }
+
+        function getObjectIndex(name) {
+            cards.filter(obj => {
+                return obj.name === name;
+            })
+        }
+
+
+
 
         let cardsDiv = document.getElementById("cards-div");
 
@@ -233,6 +249,8 @@
         window.addEventListener("load", (event) => {
             printCards(cards);
         })
+
+        localStorage
     </script>
 </body>
 

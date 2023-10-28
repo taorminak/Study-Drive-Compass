@@ -1,0 +1,77 @@
+ul {
+    list-style: none;
+}
+
+.skill-card {
+    width: 80%;
+    margin: 4em;
+    padding: 1.5em;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 1em;
+}
+
+.skill-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.skill-card-progress-text-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: smaller;
+}
+
+.modal-body {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#btn1 {
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #B4DBC0;
+    border: none;
+}
+
+#progress-bar1 {
+    background-color: #B4DBC0;
+}
+
+#modal-btn1-1 {
+    border: none;
+    background-color: #afafaf;
+}
+
+#modal-btn1-2 {
+    background-color: #B4DBC0;
+    border: none;
+}
+
+#btn2 {
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #a7b3a5;
+    border: none;
+}
+
+#progress-bar2 {
+    background-color: #a7b3a5;
+}
+
+#modal-btn2-1 {
+    border: none;
+    background-color: #afafaf;
+}
+
+#modal-btn2-2 {
+    background-color: #a7b3a5;
+    border: none;
+}
