@@ -1,45 +1,71 @@
-// let cards = [{
-//     id: 1,
-//     name: 'Программирование',
-//     dateCreated: new Date(2023, 6, 22),
-//     tasks: [{
-//         id: 1,
-//         name: 'Теория',
-//         isDone: false,
-//     }, {
-//         id: 2,
-//         name: 'Практика',
-//         isDone: true,
-//     }, {
-//         id: 3,
-//         name: 'Софт скилы',
-//         isDone: false,
-//     }],
-//     tasksFinished: 1
+let cards = [{
+    id: 1,
+    name: 'Программирование',
+    dateCreated: new Date(2023, 6, 22),
+    tasks: [{
+        id: 1,
+        name: 'Теория',
+        isDone: false,
+    }, {
+        id: 2,
+        name: 'Практика',
+        isDone: true,
+    }, {
+        id: 3,
+        name: 'Софт скилы',
+        isDone: false,
+    }],
+    tasksFinished: 1
+}, {
+    id: 2,
+    name: 'Английский',
+    dateCreated: new Date(2023, 9, 22),
+    tasks: [{
+        id: 1,
+        name: 'Раздел 1',
+        isDone: true,
+    }, {
+        id: 2,
+        name: 'Повторить слова',
+        isDone: true,
+    }, {
+        id: 3,
+        name: 'Написать эссе',
+        isDone: false,
+    }, {
+        id: 4,
+        name: 'Записаться к репетитору',
+        isDone: false,
+    }],
+    tasksFinished: 3}];
 // }, {
-//     id: 2,
-//     name: 'Английский',
-//     dateCreated: new Date(2023, 9, 22),
+//     id: 3,
+//     name: 'Спорт',
+//     dateCreated: new Date(2023, 10, 1),
 //     tasks: [{
 //         id: 1,
-//         name: 'Раздел 1',
+//         name: 'Утренняя зарядка',
 //         isDone: true,
 //     }, {
 //         id: 2,
-//         name: 'Повторить слова',
-//         isDone: true,
+//         name: 'Бег 5 км',
+//         isDone: false,
 //     }, {
 //         id: 3,
-//         name: 'Написать эссе',
+//         name: 'Отжимания',
 //         isDone: false,
 //     }, {
 //         id: 4,
-//         name: 'Записаться к репетитору',
+//         name: 'Приседания',
+//         isDone: false,
+//     }, {
+//         id: 5,
+//         name: 'Прыжки на скакалке',
 //         isDone: false,
 //     }],
-//     tasksFinished: 3
+//     tasksFinished: 1
 // }];
-// addToStorage(cards);
+addToStorage(cards);
 
 function weeksBetween(d1, d2) {
     return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
@@ -136,9 +162,9 @@ function printCards(cardArr) {
                     ${printModalTasks(card)}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="modal-btn1-1" class="btn btn-secondary"
+                    <button type="button" id="modal-btn${card.id}-1" class="btn btn-secondary"
                         data-bs-dismiss="modal">Закрыть</button>
-                    <button type="button" id="modal-btn1-2" class="btn btn-primary" onClick="
+                    <button type="button" id="modal-btn${card.id}-2" class="btn btn-primary" onClick="
             location.reload()">Сохранить</button>
                 </div>
             </div>

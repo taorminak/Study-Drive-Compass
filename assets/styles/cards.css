@@ -90,12 +90,12 @@ ul {
     height: 2.5em;
     text-align: center;
     border-radius: 100%;
-    background-color: #a7b3a5;
+    background-color: #b56357;
     border: none;
 }
 
 #progress-bar3 {
-    background-color: #a7b3a5;
+    background-color: #b56357;
 }
 
 #modal-btn3-1 {
@@ -104,6 +104,6 @@ ul {
 }
 
 #modal-btn3-2 {
-    background-color: #a7b3a5;
+    background-color: #b56357;
     border: none;
 }
