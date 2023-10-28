@@ -3,12 +3,13 @@ ul {
 }
 
 .skill-card {
-    width: 80%;
+    width: 38%;
     margin: 4em;
     padding: 1.5em;
 
     background-color: rgb(255, 255, 255);
     border-radius: 1em;
+    box-shadow: 1px 1px 8px #88888842;
 }
 
 .skill-card-header {
@@ -28,6 +29,12 @@ ul {
 .modal-body {
     padding-left: 10%;
     padding-right: 10%;
+}
+
+#cards-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 #btn1 {
@@ -72,6 +79,29 @@ ul {
 }
 
 #modal-btn2-2 {
+    background-color: #a7b3a5;
+    border: none;
+}
+
+#btn3 {
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #a7b3a5;
+    border: none;
+}
+
+#progress-bar3 {
+    background-color: #a7b3a5;
+}
+
+#modal-btn3-1 {
+    border: none;
+    background-color: #afafaf;
+}
+
+#modal-btn3-2 {
     background-color: #a7b3a5;
     border: none;
 }
