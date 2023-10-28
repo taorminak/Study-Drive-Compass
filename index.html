@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +10,103 @@
     <link rel="stylesheet" type="text/css" href="./assets/styles/normalize.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="stylesheet" type="text/css" href="./calendar/calendar.css">
     <link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">
     <title>Study Drive Compass</title>
-</head>
-<body>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="stylesheet" href="./assets/styles/normalize.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/styles/add-task.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    
+    <section class="new-task">
+      <h2 class="new-task__text">Создайте что-то интересное</h2>
+      <button
+        type="button"
+        class="btn add-btn new-task__btn"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        Добавить задачу
+      </button>
+    </section>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content task-modal-content">
+          <div class="modal-header">
+            <h1
+              class="modal-title fs-5 task-modal__title"
+              id="exampleModalLabel">
+              Новая задача
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="task-name" class="col-form-label">Название: </label>
+                <input
+                  type="text"
+                  id="task-name"
+                  class="form-control"
+                  placeholder="..." />
+              </div>
+              <div class="mb-3">
+                <label for="task-date" class="col-form-label">Дата:</label>
+                <input type="date" id="task-date" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="task-time" class="col-form-label">Время:</label>
+                <input type="time" id="task-time" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="task-tag" class="col-form-label"
+                  >Группа задач:</label
+                >
+                <input type="text" id="task-tag" class="form-control" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="add-task-btn"
+              type="button"
+              class="btn btn-primary add-btn">
+              Добавить задачу
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div id="cards-div"></div>
+    <section id="calendar"></section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+      <script src="./calendar/calendar.js"></script>
     <script src="./assets/js/cards.js"></script>
-</body>
+  </body>
 </html>

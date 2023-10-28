@@ -27,12 +27,14 @@ ul {
 }
 
 .modal-body {
-    padding-left: 10%;
-    padding-right: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #cards-div {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }

@@ -1,63 +1,45 @@
-let cards = [{
-    id: 1,
-    name: 'Программирование',
-    dateCreated: new Date(2023, 6, 22),
-    tasks: [{
-        id: 1,
-        name: 'Теория',
-        isDone: false,
-    }, {
-        id: 2,
-        name: 'Практика',
-        isDone: true,
-    }, {
-        id: 3,
-        name: 'Софт скилы',
-        isDone: false,
-    }],
-    tasksFinished: 1
-}, {
-    id: 2,
-    name: 'Английский',
-    dateCreated: new Date(2023, 9, 22),
-    tasks: [{
-        id: 1,
-        name: 'Раздел 1',
-        isDone: true,
-    }, {
-        id: 2,
-        name: 'Повторить слова',
-        isDone: true,
-    }, {
-        id: 3,
-        name: 'Написать эссе',
-        isDone: false,
-    }, {
-        id: 4,
-        name: 'Записаться к репетитору',
-        isDone: false,
-    }],
-    tasksFinished: 3
-}, {
-    id: 3,
-    name: 'Спорт',
-    dateCreated: new Date(2023, 10, 1),
-    tasks: [{
-        id: 1,
-        name: 'Утренняя зарядка',
-        isDone: true,
-    }, {
-        id: 2,
-        name: 'Бег 5 км',
-        isDone: false,
-    }, {
-        id: 3,
-        name: 'Отжимания',
-        isDone: false,
-    }],
-    tasksFinished: 1
-}];
-addToStorage(cards);
+// let cards = [{
+//     id: 1,
+//     name: 'Программирование',
+//     dateCreated: new Date(2023, 6, 22),
+//     tasks: [{
+//         id: 1,
+//         name: 'Теория',
+//         isDone: false,
+//     }, {
+//         id: 2,
+//         name: 'Практика',
+//         isDone: true,
+//     }, {
+//         id: 3,
+//         name: 'Софт скилы',
+//         isDone: false,
+//     }],
+//     tasksFinished: 1
+// }, {
+//     id: 2,
+//     name: 'Английский',
+//     dateCreated: new Date(2023, 9, 22),
+//     tasks: [{
+//         id: 1,
+//         name: 'Раздел 1',
+//         isDone: true,
+//     }, {
+//         id: 2,
+//         name: 'Повторить слова',
+//         isDone: true,
+//     }, {
+//         id: 3,
+//         name: 'Написать эссе',
+//         isDone: false,
+//     }, {
+//         id: 4,
+//         name: 'Записаться к репетитору',
+//         isDone: false,
+//     }],
+//     tasksFinished: 3
+// }];
+// addToStorage(cards);
 
 function weeksBetween(d1, d2) {
     return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
