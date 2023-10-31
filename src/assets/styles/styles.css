@@ -24,7 +24,7 @@ body {
 
 
   blockquote {
-    width: 318px;
+    width: 100%;
     height: auto;
     background-color: #e7f8eb; /* Цвет фона блока цитат */
     position: static;
@@ -33,6 +33,7 @@ body {
     color: #131314;
     padding: 30px 30px 30px 90px;
     position: relative;
+    border-radius: 20px;
     }
 blockquote:before {
     content: "\201C";
