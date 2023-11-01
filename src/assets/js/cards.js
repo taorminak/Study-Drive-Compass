@@ -1,69 +1,69 @@
-// let cards = [{
-//     id: 1,
-//     name: 'Программирование',
-//     dateCreated: new Date(2023, 6, 22),
-//     tasks: [{
-//         id: 1,
-//         name: 'Теория',
-//         isDone: false,
-//     }, {
-//         id: 2,
-//         name: 'Практика',
-//         isDone: true,
-//     }, {
-//         id: 3,
-//         name: 'Софт скилы',
-//         isDone: false,
-//     }],
-//     tasksFinished: 1
-// }, {
-//     id: 2,
-//     name: 'Английский',
-//     dateCreated: new Date(2023, 9, 22),
-//     tasks: [{
-//         id: 1,
-//         name: 'Раздел 1',
-//         isDone: true,
-//     }, {
-//         id: 2,
-//         name: 'Повторить слова',
-//         isDone: true,
-//     }, {
-//         id: 3,
-//         name: 'Написать эссе',
-//         isDone: false,
-//     }, {
-//         id: 4,
-//         name: 'Записаться к репетитору',
-//         isDone: false,
-//     }],
-//     tasksFinished: 3}, {
-//     id: 3,
-//     name: 'Спорт',
-//     dateCreated: new Date(2023, 10, 1),
-//     tasks: [{
-//         id: 1,
-//         name: 'Утренняя зарядка',
-//         isDone: true,
-//     }, {
-//         id: 2,
-//         name: 'Бег 5 км',
-//         isDone: false,
-//     }, {
-//         id: 3,
-//         name: 'Отжимания',
-//         isDone: false,
-//     }, {
-//         id: 4,
-//         name: 'Приседания',
-//         isDone: false,
-//     }, {
-//         id: 5,
-//         name: 'Прыжки на скакалке',
-//         isDone: false,
-//     }],
-//     tasksFinished: 1
-// }];
+let cards = [{
+    id: 1,
+    name: 'Программирование',
+    dateCreated: new Date(2023, 6, 22),
+    tasks: [{
+        id: 1,
+        name: 'Теория',
+        isDone: false,
+    }, {
+        id: 2,
+        name: 'Практика',
+        isDone: true,
+    }, {
+        id: 3,
+        name: 'Софт скилы',
+        isDone: false,
+    }],
+    tasksFinished: 1
+}, {
+    id: 2,
+    name: 'Английский',
+    dateCreated: new Date(2023, 9, 22),
+    tasks: [{
+        id: 1,
+        name: 'Раздел 1',
+        isDone: true,
+    }, {
+        id: 2,
+        name: 'Повторить слова',
+        isDone: true,
+    }, {
+        id: 3,
+        name: 'Написать эссе',
+        isDone: false,
+    }, {
+        id: 4,
+        name: 'Записаться к репетитору',
+        isDone: false,
+    }],
+    tasksFinished: 2}, {
+    id: 3,
+    name: 'Спорт',
+    dateCreated: new Date(2023, 10, 1),
+    tasks: [{
+        id: 1,
+        name: 'Утренняя зарядка',
+        isDone: true,
+    }, {
+        id: 2,
+        name: 'Бег 5 км',
+        isDone: false,
+    }, {
+        id: 3,
+        name: 'Отжимания',
+        isDone: false,
+    }, {
+        id: 4,
+        name: 'Приседания',
+        isDone: false,
+    }, {
+        id: 5,
+        name: 'Прыжки на скакалке',
+        isDone: false,
+    }],
+    tasksFinished: 1
+}];
 // addToStorage(cards);
 
 function weeksBetween(d1, d2) {
@@ -76,19 +76,32 @@ function calculateProgress(tasks, tasksFinished) {
 
 function printModalTasks(card) {
     let content = '';
+    let count = 1;
     card.tasks.forEach(task => {
         if (task.isDone) {
-            content += `<input class="form-check-input" type="checkbox" value="${task.name}" id="${task.id}" onClick="saveCheckbox(this)" checked>
-                        <label class="form-check-label" for="flexCheckDefault">
-                            ${task.name}
-                        </label>
-                        <br/>`;
+            content += `<tr>
+                            <th scope="row">${count}</th>
+                            <td>${task.name}</td>
+                            <td><input type="checkbox" value="${task.name}"  id="${task.id}" onClick="saveCheckbox(this)" checked></td>
+                        </tr>`;
+            // content += `<input class="form-check-input" type="checkbox" value="${task.name}" id="${task.id}" onClick="saveCheckbox(this)" checked>
+            //             <label class="form-check-label" for="flexCheckDefault">
+            //                 ${task.name}
+            //             </label>
+            //             <br/>`;
+                        count++;
         } else {
-            content += `<input class="form-check-input" type="checkbox" value="${task.name}" id="${task.id}" onClick="saveCheckbox(this)">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            ${task.name}
-                        </label>
-                        <br/>`;
+            content += `<tr>
+                            <th scope="row">${count}</th>
+                            <td>${task.name}</td>
+                            <td><input type="checkbox" value="${task.name}"  id="${task.id}" onClick="saveCheckbox(this)"></td>
+                        </tr>`;
+            // content += `<input class="form-check-input" type="checkbox" value="${task.name}" id="${task.id}" onClick="saveCheckbox(this)">
+            //             <label class="form-check-label" for="flexCheckDefault">
+            //                 ${task.name}
+            //             </label>
+            //             <br/>`;
+                        count++;
         }
     })
     return content;
@@ -98,11 +111,9 @@ function saveCheckbox(cb) {
     let cards = getCards();
     let n = getTaskIndex(cb.value, cards);
     if (cb.checked) {
-        console.log(cb.value);
         cards[n[0]].tasks[n[1]].isDone = true;
         cards[n[0]].tasksFinished++;
     } else {
-        console.log(cb.value);
         cards[n[0]].tasks[n[1]].isDone = false;
         cards[n[0]].tasksFinished--;
     }
@@ -131,7 +142,7 @@ function printCards(cardArr) {
                 <p class="skill-card-subtitle">Неделя ${weeksBetween(Date.parse(card.dateCreated), new Date())}</p>
             </div>
             <button type="button" class="btn btn-primary" id="btn${card.id}" data-bs-toggle="modal"
-                data-bs-target="#modal${card.id}">
+                data-bs-target="#modal-card${card.id}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                     <path
@@ -151,15 +162,26 @@ function printCards(cardArr) {
         <p>Задач выполнено: ${card.tasksFinished} </p>
     </div>
 
-    <div class="modal fade" id="modal${card.id}" tabindex="-1" aria-labelledby="modal${card.id}Label" aria-hidden="true">
+    <div class="modal fade" id="modal-card${card.id}" tabindex="-1" aria-labelledby="modal${card.id}Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Список задач</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div id="modal-body${card.id}" class="modal-body">
-                    ${printModalTasks(card)}
+                <div id="modal-body ${card.id}" class="modal-body">
+                    <table class="table table-modal-body${card.id}" >
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Задача</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${printModalTasks(card)}
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="modal-btn${card.id}-1" class="btn btn-secondary"
@@ -177,13 +199,15 @@ window.addEventListener("load", (event) => {
     if (localStorage.getItem("cards") !== null) {
         let cardsLocal = getCards();
         printCards(cardsLocal);
-    } else printCards(cards);
+    } else {
+        printCards(cards);
+        addToStorage(cards);
+    };
 })
 
 function addToStorage(cards) {
     let cardsJSON = JSON.stringify(cards);
     localStorage.setItem("cards", cardsJSON);
-    console.log("added");
 }
 
 function getCards() {
