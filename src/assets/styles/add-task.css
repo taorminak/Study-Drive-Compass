@@ -9,23 +9,34 @@ body {
   --sea-foam: #a7b3a5;
 }
 .new-task {
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
-  background-color: var(--slate);
+  justify-content: space-between;
+  background-color: #fff;
   padding: 2vh 2vw;
+  border-radius: 20px;
+  min-height: 70vh;
+  padding-bottom: 30px;
 }
 
 .new-task__text {
   font-weight: 600;
-  color: var(--rust);
+  font-size: 22px;
+  color: black;
+  padding: 30px;
+  text-align: center;
 }
 
 .add-btn {
   font-weight: 400;
   background-color: var(--mint);
-  border-color: var(--sea-foam);
   color: #000;
   align-self: center;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  border-radius: 7px;
 }
 .add-btn:hover {
   background-color: var(--rust);
