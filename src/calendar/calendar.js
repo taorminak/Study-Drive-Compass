@@ -191,7 +191,6 @@ function updateCalendarDays() {
 function isCurrentDate(day) {
   const currentDate = removeTimeFromDate(new Date());
   const itemDate = removeTimeFromDate(day);
-console.log(day)
   return areDatesEqual(currentDate, itemDate);
 }
 
@@ -204,7 +203,6 @@ function removeTimeFromDate(date) {
 }
 
 function areDatesEqual(date1, date2) {
-  console.log(date1, date2)
   if (!(date1 instanceof Date) || !(date2 instanceof Date)) {
     return false; 
   }

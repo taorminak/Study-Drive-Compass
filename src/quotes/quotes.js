@@ -1,9 +1,9 @@
 let currentOffset = 0;
 
 function fetchItems(searchTerm, offset, limit) {
+  
   const apiUrl = `https://cors-anywhere.herokuapp.com/https://api.fisenko.net/v1/quotes/en?query=${searchTerm}&offset=${offset}&limit=${limit}`;
 
-  console.log(apiUrl);
   fetch(apiUrl, {
     method: 'GET',
     mode: 'cors', 
@@ -15,11 +15,9 @@ function fetchItems(searchTerm, offset, limit) {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        console.log(response)
         return response.json();
       })
       .then((data) => {
-        console.log(data)
         displayQuote(data)
       })
       .catch((error) => {

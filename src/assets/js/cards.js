@@ -98,11 +98,9 @@ function saveCheckbox(cb) {
     let cards = getCards();
     let n = getTaskIndex(cb.value, cards);
     if (cb.checked) {
-        console.log(cb.value);
         cards[n[0]].tasks[n[1]].isDone = true;
         cards[n[0]].tasksFinished++;
     } else {
-        console.log(cb.value);
         cards[n[0]].tasks[n[1]].isDone = false;
         cards[n[0]].tasksFinished--;
     }
@@ -183,7 +181,6 @@ window.addEventListener("load", (event) => {
 function addToStorage(cards) {
     let cardsJSON = JSON.stringify(cards);
     localStorage.setItem("cards", cardsJSON);
-    console.log("added");
 }
 
 function getCards() {
