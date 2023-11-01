@@ -95,9 +95,9 @@ updateCalendar();
 
 function getFirstWeekday(month, year) {
   const firstDayOfMonth = new Date(year, month, 1);
-  
+
   const firstWeekDay = (firstDayOfMonth.getDay() + 6) % 7;
- 
+
   return firstWeekDay;
 }
 
@@ -178,11 +178,6 @@ function updateCalendarDays() {
         dateSpan.classList.add("calendar__current-date");
       }
     }
-  
-    
-      
-     
-    
 
     container.appendChild(dayContainer);
   });
@@ -204,7 +199,9 @@ function removeTimeFromDate(date) {
 
 function areDatesEqual(date1, date2) {
   if (!(date1 instanceof Date) || !(date2 instanceof Date)) {
-    return false; 
+    return false;
   }
-  return date1.toISOString().split('T')[0] === date2.toISOString().split('T')[0];
+  return (
+    date1.toISOString().split("T")[0] === date2.toISOString().split("T")[0]
+  );
 }

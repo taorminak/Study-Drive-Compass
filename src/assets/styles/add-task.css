@@ -33,7 +33,9 @@ body {
   background-color: var(--mint);
   color: #000;
   align-self: center;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   border-radius: 7px;
 }
 .add-btn:hover {
