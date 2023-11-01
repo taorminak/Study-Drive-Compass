@@ -97,7 +97,7 @@ function getFirstWeekday(month, year) {
   const firstDayOfMonth = new Date(year, month, 1);
   // Используем правильный расчет первого дня, который учитывает день недели (0 - Воскресенье, 6 - Суббота)
   const firstWeekDay = (firstDayOfMonth.getDay() + 6) % 7;
-  console.log(firstWeekDay);
+  // console.log(firstWeekDay);
   return firstWeekDay;
 }
 
@@ -114,7 +114,7 @@ function calculateDaysInMonth(month, year) {
   for (let i = 0; i < firstWeekDay; i++) {
     daysOfMonth.unshift("");
   }
-  console.log(daysOfMonth);
+  // console.log(daysOfMonth);
   return daysOfMonth;
 }
 
@@ -144,12 +144,12 @@ function updateCalendarDays() {
   });
 
   const daysInMonth = calculateDaysInMonth(date.getMonth(), date.getFullYear());
-  console.log(daysInMonth);
+  // console.log(daysInMonth);
 
   daysInMonth.forEach((day, index) => {
     const dayContainer = document.createElement("div");
     dayContainer.className = "container__item-day calendar__item-container";
-    console.log(day);
+    // console.log(day);
 
     const dayElement = document.createElement("div");
     dayElement.className = getDayClass(index, "daysInMonth");

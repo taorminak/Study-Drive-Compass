@@ -1,44 +1,43 @@
-let cards = [{
-    id: 1,
-    name: 'Программирование',
-    dateCreated: new Date(2023, 6, 22),
-    tasks: [{
-        id: 1,
-        name: 'Теория',
-        isDone: false,
-    }, {
-        id: 2,
-        name: 'Практика',
-        isDone: true,
-    }, {
-        id: 3,
-        name: 'Софт скилы',
-        isDone: false,
-    }],
-    tasksFinished: 1
-}, {
-    id: 2,
-    name: 'Английский',
-    dateCreated: new Date(2023, 9, 22),
-    tasks: [{
-        id: 1,
-        name: 'Раздел 1',
-        isDone: true,
-    }, {
-        id: 2,
-        name: 'Повторить слова',
-        isDone: true,
-    }, {
-        id: 3,
-        name: 'Написать эссе',
-        isDone: false,
-    }, {
-        id: 4,
-        name: 'Записаться к репетитору',
-        isDone: false,
-    }],
-    tasksFinished: 3}];
+// let cards = [{
+//     id: 1,
+//     name: 'Программирование',
+//     dateCreated: new Date(2023, 6, 22),
+//     tasks: [{
+//         id: 1,
+//         name: 'Теория',
+//         isDone: false,
+//     }, {
+//         id: 2,
+//         name: 'Практика',
+//         isDone: true,
+//     }, {
+//         id: 3,
+//         name: 'Софт скилы',
+//         isDone: false,
+//     }],
+//     tasksFinished: 1
 // }, {
+//     id: 2,
+//     name: 'Английский',
+//     dateCreated: new Date(2023, 9, 22),
+//     tasks: [{
+//         id: 1,
+//         name: 'Раздел 1',
+//         isDone: true,
+//     }, {
+//         id: 2,
+//         name: 'Повторить слова',
+//         isDone: true,
+//     }, {
+//         id: 3,
+//         name: 'Написать эссе',
+//         isDone: false,
+//     }, {
+//         id: 4,
+//         name: 'Записаться к репетитору',
+//         isDone: false,
+//     }],
+//     tasksFinished: 3}, {
 //     id: 3,
 //     name: 'Спорт',
 //     dateCreated: new Date(2023, 10, 1),
@@ -65,7 +64,7 @@ let cards = [{
 //     }],
 //     tasksFinished: 1
 // }];
-addToStorage(cards);
+// addToStorage(cards);
 
 function weeksBetween(d1, d2) {
     return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
@@ -96,17 +95,18 @@ function printModalTasks(card) {
 }
 
 function saveCheckbox(cb) {
-    // console.log(cb.value);
     let cards = getCards();
     let n = getTaskIndex(cb.value, cards);
     if (cb.checked) {
+        console.log(cb.value);
         cards[n[0]].tasks[n[1]].isDone = true;
         cards[n[0]].tasksFinished++;
     } else {
+        console.log(cb.value);
         cards[n[0]].tasks[n[1]].isDone = false;
         cards[n[0]].tasksFinished--;
     }
-    addToStorage(cards);
+    calculateDone(cards);
 }
 
 function getTaskIndex(name, arr) {
@@ -124,7 +124,7 @@ let cardsDiv = document.getElementById("cards-div");
 
 function printCards(cardArr) {
     cardArr.forEach(card => {
-        cardsDiv.innerHTML += ` <div class="skill-card">
+        cardsDiv.innerHTML += ` <div class="skill-card" id="skill-card${card.id}">
         <div class="skill-card-header">
             <div>
                 <h3 class="skill-card-title">${card.name}</h3>
@@ -183,8 +183,22 @@ window.addEventListener("load", (event) => {
 function addToStorage(cards) {
     let cardsJSON = JSON.stringify(cards);
     localStorage.setItem("cards", cardsJSON);
+    console.log("added");
 }
 
 function getCards() {
     return cardsLocal = JSON.parse(localStorage.getItem("cards"));
+}
+
+function calculateDone(arr) {
+    arr.forEach(topic => {
+        let count = 0;
+        topic.tasks.forEach(task => {
+            if (task.isDone === true) {
+                count++;
+            }
+        })
+        topic.tasksFinished = count;
+    })
+    addToStorage(arr);
 }
