@@ -95,9 +95,9 @@ updateCalendar();
 
 function getFirstWeekday(month, year) {
   const firstDayOfMonth = new Date(year, month, 1);
-  // Используем правильный расчет первого дня, который учитывает день недели (0 - Воскресенье, 6 - Суббота)
+  
   const firstWeekDay = (firstDayOfMonth.getDay() + 6) % 7;
-  // console.log(firstWeekDay);
+ 
   return firstWeekDay;
 }
 
@@ -114,7 +114,6 @@ function calculateDaysInMonth(month, year) {
   for (let i = 0; i < firstWeekDay; i++) {
     daysOfMonth.unshift("");
   }
-  // console.log(daysOfMonth);
   return daysOfMonth;
 }
 
@@ -144,12 +143,10 @@ function updateCalendarDays() {
   });
 
   const daysInMonth = calculateDaysInMonth(date.getMonth(), date.getFullYear());
-  // console.log(daysInMonth);
 
   daysInMonth.forEach((day, index) => {
     const dayContainer = document.createElement("div");
     dayContainer.className = "container__item-day calendar__item-container";
-    // console.log(day);
 
     const dayElement = document.createElement("div");
     dayElement.className = getDayClass(index, "daysInMonth");
@@ -176,8 +173,40 @@ function updateCalendarDays() {
       eventButton.className = "calendar__item-button";
       eventButton.textContent = "\u002B";
       dayContainer.appendChild(eventButton);
+
+      if (isCurrentDate(day)) {
+        dateSpan.classList.add("calendar__current-date");
+      }
     }
+  
+    
+      
+     
+    
 
     container.appendChild(dayContainer);
   });
+}
+
+function isCurrentDate(day) {
+  const currentDate = removeTimeFromDate(new Date());
+  const itemDate = removeTimeFromDate(day);
+console.log(day)
+  return areDatesEqual(currentDate, itemDate);
+}
+
+function removeTimeFromDate(date) {
+  const dateWithoutTime = new Date(date);
+
+  dateWithoutTime.setHours(0, 0, 0, 0);
+
+  return dateWithoutTime;
+}
+
+function areDatesEqual(date1, date2) {
+  console.log(date1, date2)
+  if (!(date1 instanceof Date) || !(date2 instanceof Date)) {
+    return false; 
+  }
+  return date1.toISOString().split('T')[0] === date2.toISOString().split('T')[0];
 }
