@@ -34,6 +34,9 @@ function fetchNewQuote() {
   function displayQuote(quoteData) {
     const quoteText = document.getElementById('quote-text');
     const quoteAuthor = document.getElementById('quote-author');
+
+    quoteText.textContent = '';
+  quoteAuthor.textContent = '';
   
     if (quoteData && quoteData.length > 0) {
       const quote = quoteData[0];
