@@ -110,6 +110,9 @@ blockquote cite {
   background-color: rgb(33, 126, 74);
 }
 
+.quote-background {
+  overflow: auto;
+}
 .quote h1 {
   font-size: 22px;
 }
